@@ -1,6 +1,0 @@
-{
-  "patterns": "common Gemini/GitHub/OpenAI token shapes",
-  "matchingFiles": [],
-  "scope": "project text files, excluding virtual environment and git",
-  "limitation": "pattern scan, not a guarantee against all secrets"
-}

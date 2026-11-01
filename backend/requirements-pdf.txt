@@ -1,2 +1,0 @@
-# Optional local, offline PDF extraction; not needed by hosted API serving reviewed records.
-pymupdf==2.0
