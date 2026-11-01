@@ -1,0 +1,27 @@
+{
+  "copiedProjectBackendTests": {
+    "passed": 165,
+    "failed": 0,
+    "warning": "Existing Starlette/httpx deprecation",
+    "interpreter": "Existing source repository Python 3.12 environment; fresh dependency install NOT tested",
+    "isolation": "Literal child environment, temporary SQLite, network-blocked application tests"
+  },
+  "copiedProjectFrontendTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "manifestHashes": "ALL_MATCH",
+  "sourceFiles": 197,
+  "publicFrontendFiles": [
+    ".gitignore",
+    ".nojekyll",
+    "assets/app.js",
+    "assets/preview.js",
+    "assets/style.css",
+    "index.html"
+  ],
+  "realGemini": "NOT_TESTED",
+  "publicDeployment": "NOT_DEPLOYED",
+  "originalRepository": "Preserved; no commits or pushes",
+  "frontendCheck": "Six public files passed limited credential/path scan"
+}

@@ -1,0 +1,508 @@
+[
+  {
+    "symbol": "INFY",
+    "question": "Q4 FY25 revenue and PBT",
+    "response": {
+      "plan": {
+        "intent": "financial_snapshot",
+        "symbol": "INFY",
+        "metric": null,
+        "metrics": [
+          "revenue",
+          "pbt"
+        ],
+        "period": "Q4 FY25",
+        "operations": [
+          "retrieve",
+          "compare"
+        ],
+        "max_passages": 4,
+        "fiscal_year": 2025,
+        "quarter": 4,
+        "basis": null
+      },
+      "cacheHit": false,
+      "modelCalls": 0,
+      "replayMode": true,
+      "asOf": null,
+      "citations": [
+        {
+          "id": "infy-results-fy25",
+          "symbol": "INFY",
+          "title": "Q4 FY25 consolidated Ind-AS results",
+          "publisher": "Infosys",
+          "url": "https://www.infosys.com/investors/reports-filings/quarterly-results/2024-2025/q4/documents/q4-and-12m-fy25-financial-results-auditorsreports.pdf",
+          "kind": "exchange_result",
+          "report_date": "2025-04-17",
+          "published_at": "2025-04-17T18:18:34Z",
+          "ingested_at": "2026-10-27T11:33:47.240331Z",
+          "page": null,
+          "section": "PDF page 12",
+          "text": "Consolidated quarterly revenue was INR 40,925 crore for March 2025, 41,764 crore for December 2024 and 37,923 crore for March 2024. Quarterly profit before tax: 9,663, 9,670 and 10,240 crore respectively. Total profit for each period: 7,038, 6,822 and 7,975 crore. PAT here includes non-controlling interests. FY25 annual revenue: 162,990 crore; annual PBT: 37,608 crore; annual total profit: 26,750 crore.",
+          "evidence_method": "legacy_curated_note",
+          "content_hash": "275830e3c4533536778fa8b47b2d1b0c8f58eaa25c0bf9fb1d619419eb138c11",
+          "document_hash": null,
+          "offsets": null,
+          "rights": "Minimal derived records; publisher retains copyright; redistribution rights not certified.",
+          "date": "2025-04-17",
+          "source_published_at": "2025-04-17T18:18:34Z",
+          "hash": "275830e3c4533536778fa8b47b2d1b0c8f58eaa25c0bf9fb1d619419eb138c11",
+          "method": "legacy_curated_note",
+          "is_paraphrase": true,
+          "status": "REVIEWED"
+        }
+      ],
+      "status": "VERIFIED_DERIVED",
+      "route": "deterministic",
+      "answer": "INFY \u00b7 Q4 FY25 \u00b7 Consolidated Ind-AS; INR crore; discrete quarters. Revenue: INR 40,925.00 crore. QoQ -2.01%. YoY +7.92%. PBT: INR 9,663.00 crore. QoQ -0.07%. YoY -5.63%.",
+      "financials": {
+        "status": "PARTIAL",
+        "basis": "Consolidated Ind-AS; INR crore; discrete quarters",
+        "periods": [
+          "Q4 FY25",
+          "Previous quarter",
+          "FY24 Q4"
+        ],
+        "metrics": [
+          {
+            "metric": "Revenue",
+            "key": "revenue",
+            "current": 40925.0,
+            "previous": 41764.0,
+            "year_ago": 37923.0,
+            "qoq": -2.01,
+            "yoy": 7.92,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "infy-results-fy25",
+              "infy-results-fy25",
+              "infy-results-fy25"
+            ],
+            "qoqStatus": "DERIVED",
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "PBT",
+            "key": "pbt",
+            "current": 9663.0,
+            "previous": 9670.0,
+            "year_ago": 10240.0,
+            "qoq": -0.07,
+            "yoy": -5.63,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "infy-results-fy25",
+              "infy-results-fy25",
+              "infy-results-fy25"
+            ],
+            "qoqStatus": "DERIVED",
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "PAT (total profit)",
+            "key": "pat",
+            "current": 7038.0,
+            "previous": 6822.0,
+            "year_ago": 7975.0,
+            "qoq": 3.17,
+            "yoy": -11.75,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "infy-results-fy25",
+              "infy-results-fy25",
+              "infy-results-fy25"
+            ],
+            "qoqStatus": "DERIVED",
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "EBITDA",
+            "key": "ebitda",
+            "current": null,
+            "previous": null,
+            "year_ago": null,
+            "qoq": null,
+            "yoy": null,
+            "status": "MISSING",
+            "reason": "Not verified in this source; not substituted with another metric.",
+            "evidenceRefs": []
+          }
+        ],
+        "evidenceRefs": [
+          "infy-results-fy25"
+        ],
+        "asOf": "2025-03-31",
+        "replayMode": true
+      }
+    }
+  },
+  {
+    "symbol": "HINDUNILVR",
+    "question": "FY25 consolidated revenue",
+    "response": {
+      "plan": {
+        "intent": "financial_snapshot",
+        "symbol": "HINDUNILVR",
+        "metric": "revenue",
+        "metrics": [
+          "revenue"
+        ],
+        "period": "FY25 annual",
+        "operations": [
+          "retrieve",
+          "compare"
+        ],
+        "max_passages": 4,
+        "fiscal_year": 2025,
+        "quarter": null,
+        "basis": "consolidated"
+      },
+      "cacheHit": false,
+      "modelCalls": 0,
+      "replayMode": true,
+      "asOf": null,
+      "citations": [
+        {
+          "id": "hul-ar25-consolidated-p186",
+          "symbol": "HINDUNILVR",
+          "title": "FY2024\u201325 Integrated Annual Report \u2014 consolidated statement",
+          "publisher": "Hindustan Unilever Limited",
+          "url": "https://www.hul.co.in/files/annual-report-2024-25.pdf",
+          "kind": "annual_report",
+          "report_date": "2025-04-24",
+          "published_at": null,
+          "ingested_at": "2026-10-27T12:17:09.405073Z",
+          "page": 186,
+          "section": "PDF page 186 / printed pages 368\u2013369, consolidated profit and loss",
+          "text": "Reviewed consolidated annual Ind-AS profit-and-loss figures, not standalone figures. Total profit includes non-controlling interests. Approval date is not claimed to be the publication date. Derived table facts: revenue 2025: 63121 INR crore; revenue 2024: 61896 INR crore; pbt 2025: 14415 INR crore; pbt 2024: 13926 INR crore; pat 2025: 10671 INR crore; pat 2024: 10282 INR crore.",
+          "evidence_method": "pdf_extracted_reviewed",
+          "content_hash": "24ae5c07ee52b110b2a985be545d069b6e4f89d773fac8dc0509a06f0f859f51",
+          "document_hash": "fb08b0d08fc1cf6a60b5385d77b4bf5a390b8b55fbc9d686835bfcdea53ef1e6",
+          "offsets": [
+            184,
+            1058
+          ],
+          "rights": "Minimal derived records; publisher retains copyright; redistribution rights not certified.",
+          "date": "2025-04-24",
+          "source_published_at": null,
+          "hash": "24ae5c07ee52b110b2a985be545d069b6e4f89d773fac8dc0509a06f0f859f51",
+          "method": "pdf_extracted_reviewed",
+          "is_paraphrase": true,
+          "status": "REVIEWED"
+        }
+      ],
+      "status": "VERIFIED_DERIVED",
+      "route": "deterministic",
+      "answer": "HINDUNILVR \u00b7 FY25 annual \u00b7 Consolidated Ind-AS; INR crore; annual periods. Revenue: INR 63,121.00 crore. YoY +1.98%.",
+      "financials": {
+        "status": "PARTIAL",
+        "basis": "Consolidated Ind-AS; INR crore; annual periods",
+        "periods": [
+          "FY25 annual",
+          "Not applicable",
+          "FY24 annual"
+        ],
+        "metrics": [
+          {
+            "metric": "Revenue",
+            "key": "revenue",
+            "current": 63121.0,
+            "previous": null,
+            "year_ago": 61896.0,
+            "qoq": null,
+            "yoy": 1.98,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "hul-ar25-consolidated-p186",
+              "hul-ar25-consolidated-p186"
+            ],
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "PBT",
+            "key": "pbt",
+            "current": 14415.0,
+            "previous": null,
+            "year_ago": 13926.0,
+            "qoq": null,
+            "yoy": 3.51,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "hul-ar25-consolidated-p186",
+              "hul-ar25-consolidated-p186"
+            ],
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "PAT (total profit)",
+            "key": "pat",
+            "current": 10671.0,
+            "previous": null,
+            "year_ago": 10282.0,
+            "qoq": null,
+            "yoy": 3.78,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "hul-ar25-consolidated-p186",
+              "hul-ar25-consolidated-p186"
+            ],
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "EBITDA",
+            "key": "ebitda",
+            "current": null,
+            "previous": null,
+            "year_ago": null,
+            "qoq": null,
+            "yoy": null,
+            "status": "MISSING",
+            "reason": "Not verified in this source; not substituted with another metric.",
+            "evidenceRefs": []
+          }
+        ],
+        "evidenceRefs": [
+          "hul-ar25-consolidated-p186"
+        ],
+        "asOf": "2025-03-31",
+        "replayMode": true
+      }
+    }
+  },
+  {
+    "symbol": "ASIANPAINT",
+    "question": "FY25 standalone PBT and PAT",
+    "response": {
+      "plan": {
+        "intent": "financial_snapshot",
+        "symbol": "ASIANPAINT",
+        "metric": null,
+        "metrics": [
+          "pat",
+          "pbt"
+        ],
+        "period": "FY25 annual",
+        "operations": [
+          "retrieve",
+          "compare"
+        ],
+        "max_passages": 4,
+        "fiscal_year": 2025,
+        "quarter": null,
+        "basis": "standalone"
+      },
+      "cacheHit": false,
+      "modelCalls": 0,
+      "replayMode": true,
+      "asOf": null,
+      "citations": [
+        {
+          "id": "asian-ar25-standalone-p12",
+          "symbol": "ASIANPAINT",
+          "title": "FY2024\u201325 Annual Report \u2014 standalone financial statements",
+          "publisher": "Asian Paints Limited",
+          "url": "https://www.asianpaints.com/content/dam/asianpaints/website/secondary-navigation/investors/annual-reports/2024-2025/Standalone-Financial_Statements.pdf",
+          "kind": "annual_report",
+          "report_date": "2025-05-08",
+          "published_at": null,
+          "ingested_at": "2026-10-27T12:17:09.405073Z",
+          "page": 12,
+          "section": "PDF page 12 / printed page 351, standalone profit and loss",
+          "text": "Reviewed standalone annual figures. Revenue components are not yet normalized into a verified total. EBITDA follows this issuer\u2019s disclosed I\u2013II definition, which includes other income; it must not be assumed comparable to core operating EBITDA. Derived table facts: pbt 2025: 4897.18 INR crore; pbt 2024: 6998.72 INR crore; pat 2025: 3584.88 INR crore; pat 2024: 5315.01 INR crore; ebitda 2025: 6322.43 INR crore; ebitda 2024: 7865.74 INR crore.",
+          "evidence_method": "pdf_extracted_reviewed",
+          "content_hash": "a60ac4f7d4166e61bb917969be7bba25afac7587b4b496f0a2ad5f1f66871026",
+          "document_hash": "c27143bca538d491e9e889ffed28980257f7a3bed4a1685d223bed5d3cb30b35",
+          "offsets": [
+            858,
+            1341
+          ],
+          "rights": "Minimal derived records; publisher retains copyright; redistribution rights not certified.",
+          "date": "2025-05-08",
+          "source_published_at": null,
+          "hash": "a60ac4f7d4166e61bb917969be7bba25afac7587b4b496f0a2ad5f1f66871026",
+          "method": "pdf_extracted_reviewed",
+          "is_paraphrase": true,
+          "status": "REVIEWED"
+        }
+      ],
+      "status": "VERIFIED_DERIVED",
+      "route": "deterministic",
+      "answer": "ASIANPAINT \u00b7 FY25 annual \u00b7 Standalone Ind-AS; INR crore; annual periods. PBT: INR 4,897.18 crore. YoY -30.03%. PAT (total profit): INR 3,584.88 crore. YoY -32.55%.",
+      "financials": {
+        "status": "PARTIAL",
+        "basis": "Standalone Ind-AS; INR crore; annual periods",
+        "periods": [
+          "FY25 annual",
+          "Not applicable",
+          "FY24 annual"
+        ],
+        "metrics": [
+          {
+            "metric": "Revenue",
+            "key": "revenue",
+            "current": null,
+            "previous": null,
+            "year_ago": null,
+            "qoq": null,
+            "yoy": null,
+            "status": "MISSING",
+            "reason": "Not verified in this source; not substituted with another metric.",
+            "evidenceRefs": []
+          },
+          {
+            "metric": "PBT",
+            "key": "pbt",
+            "current": 4897.18,
+            "previous": null,
+            "year_ago": 6998.72,
+            "qoq": null,
+            "yoy": -30.03,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "asian-ar25-standalone-p12",
+              "asian-ar25-standalone-p12"
+            ],
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "PAT (total profit)",
+            "key": "pat",
+            "current": 3584.88,
+            "previous": null,
+            "year_ago": 5315.01,
+            "qoq": null,
+            "yoy": -32.55,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "asian-ar25-standalone-p12",
+              "asian-ar25-standalone-p12"
+            ],
+            "yoyStatus": "DERIVED"
+          },
+          {
+            "metric": "EBITDA",
+            "key": "ebitda",
+            "current": 6322.43,
+            "previous": null,
+            "year_ago": 7865.74,
+            "qoq": null,
+            "yoy": -19.62,
+            "status": "VERIFIED_DERIVED",
+            "reason": null,
+            "evidenceRefs": [
+              "asian-ar25-standalone-p12",
+              "asian-ar25-standalone-p12"
+            ],
+            "yoyStatus": "DERIVED"
+          }
+        ],
+        "evidenceRefs": [
+          "asian-ar25-standalone-p12"
+        ],
+        "asOf": "2025-03-31",
+        "replayMode": true
+      }
+    }
+  },
+  {
+    "symbol": "ASIANPAINT",
+    "question": "FY25 consolidated PAT",
+    "response": {
+      "plan": {
+        "intent": "financial_snapshot",
+        "symbol": "ASIANPAINT",
+        "metric": "pat",
+        "metrics": [
+          "pat"
+        ],
+        "period": "FY25 annual",
+        "operations": [
+          "retrieve",
+          "compare"
+        ],
+        "max_passages": 4,
+        "fiscal_year": 2025,
+        "quarter": null,
+        "basis": "consolidated"
+      },
+      "cacheHit": false,
+      "modelCalls": 0,
+      "replayMode": true,
+      "asOf": null,
+      "citations": [],
+      "status": "MISSING",
+      "route": "deterministic",
+      "answer": "No verified primary financial facts imported for this ticker and period."
+    }
+  },
+  {
+    "symbol": "HINDUNILVR",
+    "question": "Q4 FY25 revenue",
+    "response": {
+      "plan": {
+        "intent": "financial_snapshot",
+        "symbol": "HINDUNILVR",
+        "metric": "revenue",
+        "metrics": [
+          "revenue"
+        ],
+        "period": "Q4 FY25",
+        "operations": [
+          "retrieve",
+          "compare"
+        ],
+        "max_passages": 4,
+        "fiscal_year": 2025,
+        "quarter": 4,
+        "basis": null
+      },
+      "cacheHit": false,
+      "modelCalls": 0,
+      "replayMode": true,
+      "asOf": null,
+      "citations": [],
+      "status": "MISSING",
+      "route": "deterministic",
+      "answer": "No verified primary financial facts imported for this ticker and period."
+    }
+  },
+  {
+    "symbol": "ZENSARTECH",
+    "question": "FY25 revenue",
+    "response": {
+      "plan": {
+        "intent": "financial_snapshot",
+        "symbol": "ZENSARTECH",
+        "metric": "revenue",
+        "metrics": [
+          "revenue"
+        ],
+        "period": "FY25 annual",
+        "operations": [
+          "retrieve",
+          "compare"
+        ],
+        "max_passages": 4,
+        "fiscal_year": 2025,
+        "quarter": null,
+        "basis": null
+      },
+      "cacheHit": false,
+      "modelCalls": 0,
+      "replayMode": true,
+      "asOf": null,
+      "citations": [],
+      "status": "MISSING",
+      "route": "deterministic",
+      "answer": "ZENSARTECH: source unavailable in this local corpus or as-of cutoff. Ticker syntax is valid; exchange listing status is unverified."
+    }
+  }
+]

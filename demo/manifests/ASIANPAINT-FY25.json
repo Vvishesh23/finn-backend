@@ -1,0 +1,121 @@
+{
+  "symbol": "ASIANPAINT",
+  "publisher": "Asian Paints Limited",
+  "title": "FY2024\u201325 Annual Report \u2014 standalone financial statements",
+  "url": "https://www.asianpaints.com/content/dam/asianpaints/website/secondary-navigation/investors/annual-reports/2024-2025/Standalone-Financial_Statements.pdf",
+  "document_hash": "c27143bca538d491e9e889ffed28980257f7a3bed4a1685d223bed5d3cb30b35",
+  "report_date": "2025-05-08",
+  "published_at": null,
+  "ingested_at": "2026-10-27T12:17:09.405073+00:00",
+  "pages": [
+    {
+      "id": "asian-ar25-standalone-p12",
+      "page": 12,
+      "section": "PDF page 12 / printed page 351, standalone profit and loss",
+      "identity_checks": [
+        "Standalone Financial Statements",
+        "Asian Paints Limited",
+        "Crores"
+      ],
+      "summary": "Reviewed standalone annual figures. Revenue components are not yet normalized into a verified total. EBITDA follows this issuer\u2019s disclosed I\u2013II definition, which includes other income; it must not be assumed comparable to core operating EBITDA.",
+      "facts": [
+        {
+          "id": "ASIANPAINT-2025-annual-standalone-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "standalone",
+          "accounting_standard": "Ind-AS",
+          "definition": "pbt",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "PROFIT BEFORE TAX\\s+(?P<value>[\\d,.]+)",
+          "expected_value": "4897.18"
+        },
+        {
+          "id": "ASIANPAINT-2024-annual-standalone-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "standalone",
+          "accounting_standard": "Ind-AS",
+          "definition": "pbt",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "PROFIT BEFORE TAX\\s+[\\d,.]+\\s+(?P<value>[\\d,.]+)",
+          "expected_value": "6998.72"
+        },
+        {
+          "id": "ASIANPAINT-2025-annual-standalone-pat",
+          "metric": "pat",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "standalone",
+          "accounting_standard": "Ind-AS",
+          "definition": "Standalone profit after tax",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "PROFIT AFTER TAX\\s+(?P<value>[\\d,.]+)",
+          "expected_value": "3584.88"
+        },
+        {
+          "id": "ASIANPAINT-2024-annual-standalone-pat",
+          "metric": "pat",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "standalone",
+          "accounting_standard": "Ind-AS",
+          "definition": "Standalone profit after tax",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "PROFIT AFTER TAX\\s+[\\d,.]+\\s+(?P<value>[\\d,.]+)",
+          "expected_value": "5315.01"
+        },
+        {
+          "id": "ASIANPAINT-2025-annual-standalone-ebitda",
+          "metric": "ebitda",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "standalone",
+          "accounting_standard": "Ind-AS",
+          "definition": "Issuer EBITDA defined as total income including other income minus operating expenses before finance costs and depreciation",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "\\(EBITDA\\) \\(I-II\\)\\s+(?P<value>[\\d,.]+)",
+          "expected_value": "6322.43"
+        },
+        {
+          "id": "ASIANPAINT-2024-annual-standalone-ebitda",
+          "metric": "ebitda",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "standalone",
+          "accounting_standard": "Ind-AS",
+          "definition": "Issuer EBITDA defined as total income including other income minus operating expenses before finance costs and depreciation",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "\\(EBITDA\\) \\(I-II\\)\\s+[\\d,.]+\\s+(?P<value>[\\d,.]+)",
+          "expected_value": "7865.74"
+        }
+      ]
+    }
+  ]
+}

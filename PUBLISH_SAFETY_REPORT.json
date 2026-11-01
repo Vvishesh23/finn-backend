@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "checkedSourceFiles": 197,
+  "credentialPatternFindings": 0,
+  "limits": "Known patterns only, not a universal secret-free guarantee or history/licence audit. No excluded secret file was opened.",
+  "runtime": "Docker build context allows only app, static assets, required public JSON fixtures and dependency lock. No docs/tests/tools/.env/DB."
+}

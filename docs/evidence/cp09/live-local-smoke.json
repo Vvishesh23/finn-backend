@@ -1,0 +1,27 @@
+{
+  "coverageStatus": 200,
+  "financialIssuers": 11,
+  "cacheControl": "no-cache",
+  "usage": {
+    "model_calls": 0,
+    "tokens": 0,
+    "cache_hits": 0,
+    "queries": 0,
+    "modelEnabled": false,
+    "scope": "Single local process; counters reset on restart",
+    "runtimeCost": "Provider account-specific; see aiUsage",
+    "aiUsage": {
+      "dayUTC": "2026-10-28",
+      "callsAttempted": 0,
+      "conservativelyReservedTokens": 0,
+      "providerReportedTokens": 0,
+      "failures": 0,
+      "maxCalls": 20,
+      "dailyTokenBudget": 50000,
+      "modelEnabled": false,
+      "model": "gemini-2.5-flash",
+      "concurrencyScope": "Single process; use one worker",
+      "moneySpent": "NOT_MEASURED; provider billing and free-tier availability are account-specific"
+    }
+  }
+}

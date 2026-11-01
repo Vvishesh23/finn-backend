@@ -1,0 +1,5 @@
+Local implementation commit: 1fb56b584fb37cfb382ad66b91c4798060464b22
+Branch: main
+Author metadata: Codex <codex@localhost>, identifying the coding agent.
+No remote configured, no push performed. Later documentation-only commits may follow.
+Current HEAD can be inspected with git rev-parse HEAD.

@@ -1,0 +1,21 @@
+# Frontend-only public preview. No backend/Gemini/environment secrets.
+services:
+  - type: web
+    name: finn-frontend
+    runtime: static
+    buildCommand: python3 scripts/build_frontend.py --output dist
+    staticPublishPath: ./dist
+    autoDeploy: false
+    envVars:
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "INFY-original-fy25-revenue_growth_cc",
+    "symbol": "INFY",
+    "evidence_id": "infy-call-fy24",
+    "actual_fact_id": "INFY-2025-annual-company_reported-revenue_growth_cc",
+    "metric": "revenue_growth_cc",
+    "low": "1",
+    "high": "3",
+    "target_start": "2024-04-01",
+    "target_end": "2025-03-31",
+    "basis": "company_reported",
+    "scale": "percent",
+    "definition": "Company-reported revenue_growth_cc"
+  },
+  {
+    "id": "INFY-original-fy25-operating_margin",
+    "symbol": "INFY",
+    "evidence_id": "infy-call-fy24",
+    "actual_fact_id": "INFY-2025-annual-company_reported-operating_margin",
+    "metric": "operating_margin",
+    "low": "20",
+    "high": "22",
+    "target_start": "2024-04-01",
+    "target_end": "2025-03-31",
+    "basis": "company_reported",
+    "scale": "percent",
+    "definition": "Company-reported operating_margin"
+  }
+]

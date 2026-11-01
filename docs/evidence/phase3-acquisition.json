@@ -1,0 +1,344 @@
+{
+  "acquired_at": "2026-10-27T12:26:20.120579+00:00",
+  "mode": "PUBLIC_SNAPSHOT_NOT_LIVE",
+  "attempts": [
+    {
+      "symbol": "INFY",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/INFY.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "INFY",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=INFY",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-27T11:08:30+00:00"
+    },
+    {
+      "symbol": "RELIANCE",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "RELIANCE",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=RELIANCE",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-24T16:18:05+00:00"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/HDFCBANK.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=HDFCBANK",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-27T02:32:56+00:00"
+    },
+    {
+      "symbol": "TCS",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TCS.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "TCS",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=TCS",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-19T06:00:08+00:00"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/ICICIBANK.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=ICICIBANK",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-27T05:04:05+00:00"
+    },
+    {
+      "symbol": "ITC",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/ITC.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "ITC",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=ITC",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-15T13:50:09+00:00"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/HINDUNILVR.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=HINDUNILVR",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-26T18:04:44+00:00"
+    },
+    {
+      "symbol": "LT",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/LT.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "LT",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=LT",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-27T11:43:10+00:00"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SUNPHARMA.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=SUNPHARMA",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-26T07:00:35+00:00"
+    },
+    {
+      "symbol": "DRREDDY",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/DRREDDY.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "DRREDDY",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=DRREDDY",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 24,
+      "latest": "2026-10-24T06:55:14+00:00"
+    },
+    {
+      "symbol": "TATAMOTORS",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TATAMOTORS.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "SOURCE_UNAVAILABLE",
+      "reason": "HTTPError"
+    },
+    {
+      "symbol": "TATAMOTORS",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=TATAMOTORS",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "EMPTY",
+      "rows": 0,
+      "latest": null
+    },
+    {
+      "symbol": "MARUTI",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MARUTI.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "MARUTI",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=MARUTI",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-27T10:14:34+00:00"
+    },
+    {
+      "symbol": "NTPC",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/NTPC.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "NTPC",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=NTPC",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-23T11:53:50+00:00"
+    },
+    {
+      "symbol": "POWERGRID",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/POWERGRID.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "POWERGRID",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=POWERGRID",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-23T11:34:40+00:00"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/BHARTIARTL.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=BHARTIARTL",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-26T13:31:03+00:00"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TATASTEEL.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=TATASTEEL",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-15T13:54:45+00:00"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/ULTRACEMCO.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=ULTRACEMCO",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-27T08:54:22+00:00"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "kind": "bars",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/BAJFINANCE.NS?range=3mo&interval=1d",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 63,
+      "latest": "2026-10-26"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "kind": "filings",
+      "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=BAJFINANCE",
+      "attempted_at": "2026-10-27T12:26:20.120579+00:00",
+      "status": "ACQUIRED",
+      "rows": 25,
+      "latest": "2026-10-26T13:56:31+00:00"
+    }
+  ],
+  "applied": true,
+  "conflicts": {
+    "bars": [],
+    "filings": []
+  },
+  "bars": {
+    "before": 189,
+    "acquired": 1071,
+    "after": 1071
+  },
+  "filings": {
+    "before": 20,
+    "acquired": 424,
+    "after": 432
+  }
+}

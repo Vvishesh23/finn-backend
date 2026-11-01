@@ -1,0 +1,146 @@
+[
+  {
+    "symbol": "INFY",
+    "sector": "Technology",
+    "bars": 63,
+    "filings": 33,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-27T11:08:30+00:00"
+  },
+  {
+    "symbol": "RELIANCE",
+    "sector": "Energy",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-24T16:18:05+00:00"
+  },
+  {
+    "symbol": "HDFCBANK",
+    "sector": "Banking",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-27T02:32:56+00:00"
+  },
+  {
+    "symbol": "TCS",
+    "sector": "Technology",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-19T06:00:08+00:00"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "sector": "Banking",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-27T05:04:05+00:00"
+  },
+  {
+    "symbol": "ITC",
+    "sector": "Consumer",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-15T13:50:09+00:00"
+  },
+  {
+    "symbol": "HINDUNILVR",
+    "sector": "Consumer",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-26T18:04:44+00:00"
+  },
+  {
+    "symbol": "LT",
+    "sector": "Industrials",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-27T11:43:10+00:00"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "sector": "Healthcare",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-26T07:00:35+00:00"
+  },
+  {
+    "symbol": "DRREDDY",
+    "sector": "Healthcare",
+    "bars": 63,
+    "filings": 24,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-24T06:55:14+00:00"
+  },
+  {
+    "symbol": "TATAMOTORS",
+    "sector": "Automotive",
+    "bars": 0,
+    "filings": 0,
+    "last_price": null,
+    "last_filing": null
+  },
+  {
+    "symbol": "MARUTI",
+    "sector": "Automotive",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-27T10:14:34+00:00"
+  },
+  {
+    "symbol": "NTPC",
+    "sector": "Utilities",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-23T11:53:50+00:00"
+  },
+  {
+    "symbol": "POWERGRID",
+    "sector": "Utilities",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-23T11:34:40+00:00"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "sector": "Telecom",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-26T13:31:03+00:00"
+  },
+  {
+    "symbol": "TATASTEEL",
+    "sector": "Materials",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-15T13:54:45+00:00"
+  },
+  {
+    "symbol": "ULTRACEMCO",
+    "sector": "Materials",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-27T08:54:22+00:00"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "sector": "Finance",
+    "bars": 63,
+    "filings": 25,
+    "last_price": "2026-10-26",
+    "last_filing": "2026-10-26T13:56:31+00:00"
+  }
+]

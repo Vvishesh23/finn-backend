@@ -1,0 +1,128 @@
+[
+  {
+    "symbol": "INFY",
+    "name": "Infosys",
+    "sector": "Technology",
+    "exchange": "NSE",
+    "isin": "INE009A01021"
+  },
+  {
+    "symbol": "RELIANCE",
+    "name": "Reliance Industries",
+    "sector": "Energy",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "HDFCBANK",
+    "name": "HDFC Bank",
+    "sector": "Banking",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "TCS",
+    "name": "Tata Consultancy Services",
+    "sector": "Technology",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "ICICIBANK",
+    "name": "ICICI Bank",
+    "sector": "Banking",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "ITC",
+    "name": "ITC",
+    "sector": "Consumer",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "HINDUNILVR",
+    "name": "Hindustan Unilever",
+    "sector": "Consumer",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "LT",
+    "name": "Larsen & Toubro",
+    "sector": "Industrials",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "name": "Sun Pharmaceutical",
+    "sector": "Healthcare",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "DRREDDY",
+    "name": "Dr. Reddy\u2019s Laboratories",
+    "sector": "Healthcare",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "TATAMOTORS",
+    "name": "Tata Motors",
+    "sector": "Automotive",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "MARUTI",
+    "name": "Maruti Suzuki",
+    "sector": "Automotive",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "NTPC",
+    "name": "NTPC",
+    "sector": "Utilities",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "POWERGRID",
+    "name": "Power Grid",
+    "sector": "Utilities",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "name": "Bharti Airtel",
+    "sector": "Telecom",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "TATASTEEL",
+    "name": "Tata Steel",
+    "sector": "Materials",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "ULTRACEMCO",
+    "name": "UltraTech Cement",
+    "sector": "Materials",
+    "exchange": "NSE",
+    "isin": null
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "name": "Bajaj Finance",
+    "sector": "Finance",
+    "exchange": "NSE",
+    "isin": null
+  }
+]

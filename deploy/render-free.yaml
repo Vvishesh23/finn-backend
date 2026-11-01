@@ -1,0 +1,22 @@
+# Free preview only: local storage is ephemeral. NEVER enable Gemini on this profile.
+# Includes historical imported data and deterministic/retrieval-only research.
+services:
+  - type: web
+    name: finn-free-preview
+    runtime: docker
+    plan: free
+    numInstances: 1
+    autoDeploy: false
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: AI_ENABLED
+        value: "false"
+      - key: REASONING_PROVIDER
+        value: disabled
+      - key: AI_BUDGET_STORAGE_PERSISTENT
+        value: "false"
+      - key: FINN_DB
+        value: /tmp/finn.sqlite3
+# No disk, no secret, no API key. Persistent Gemini requires the paid disk profile.

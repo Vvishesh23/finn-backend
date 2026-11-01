@@ -1,0 +1,122 @@
+{
+  "symbol": "DRREDDY",
+  "publisher": "Dr. Reddy's Laboratories Limited",
+  "title": "FY2024\u201325 Annual Report \u2014 consolidated financial statements",
+  "url": "https://api-dev.drreddys.com/images/Integrated-Annual-Report-2024-25.pdf",
+  "document_hash": "146edbd29325925bf415531925d3daf87ec0686d734fd89f5f31e1657811b320",
+  "report_date": "2025-05-09",
+  "published_at": null,
+  "ingested_at": "2026-10-28T06:51:33.184807+00:00",
+  "kind": "annual_report",
+  "pages": [
+    {
+      "id": "drreddy-fy25-consolidated-p175",
+      "page": 175,
+      "section": "PDF page 175 / printed page 347",
+      "identity_checks": [
+        "Consolidated",
+        "2025",
+        "millions"
+      ],
+      "summary": "Reviewed consolidated financial statements for FY2024\u201325 with FY2023\u201324 comparisons. Original amounts are INR million; displayed amounts are normalized to INR crore. Approval/report date is not asserted as publication date. EBITDA has not been inferred. ",
+      "facts": [
+        {
+          "id": "DRREDDY-2025-annual-consolidated-revenue",
+          "metric": "revenue",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Revenue from operations",
+          "currency": "INR",
+          "scale": "million",
+          "pattern": "Total revenue from operations\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "326439"
+        },
+        {
+          "id": "DRREDDY-2024-annual-consolidated-revenue",
+          "metric": "revenue",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Revenue from operations",
+          "currency": "INR",
+          "scale": "million",
+          "pattern": "Total revenue from operations\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "280111"
+        },
+        {
+          "id": "DRREDDY-2025-annual-consolidated-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Profit before tax including share of equity accounted investees",
+          "currency": "INR",
+          "scale": "million",
+          "pattern": "Profit before tax\\s+\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "76795"
+        },
+        {
+          "id": "DRREDDY-2024-annual-consolidated-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Profit before tax including share of equity accounted investees",
+          "currency": "INR",
+          "scale": "million",
+          "pattern": "Profit before tax\\s+\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "72010"
+        },
+        {
+          "id": "DRREDDY-2025-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Total profit including non-controlling interests",
+          "currency": "INR",
+          "scale": "million",
+          "pattern": "Profit for the year\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "57252"
+        },
+        {
+          "id": "DRREDDY-2024-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Total profit including non-controlling interests",
+          "currency": "INR",
+          "scale": "million",
+          "pattern": "Profit for the year\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "55779"
+        }
+      ]
+    }
+  ]
+}

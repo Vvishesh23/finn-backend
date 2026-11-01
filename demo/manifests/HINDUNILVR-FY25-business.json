@@ -1,0 +1,24 @@
+{
+  "symbol": "HINDUNILVR",
+  "publisher": "Hindustan Unilever Limited",
+  "title": "FY2024\u201325 Annual Report \u2014 company information",
+  "url": "https://www.hul.co.in/files/annual-report-2024-25.pdf",
+  "document_hash": "fb08b0d08fc1cf6a60b5385d77b4bf5a390b8b55fbc9d686835bfcdea53ef1e6",
+  "report_date": "2025-04-24",
+  "published_at": null,
+  "ingested_at": "2026-10-27T12:17:09.405073+00:00",
+  "pages": [
+    {
+      "id": "hindunilvr-ar25-business-p148",
+      "page": 148,
+      "section": "PDF page 148 / printed page 292, Note 1 company information",
+      "identity_checks": [
+        "Hindustan Unilever Limited",
+        "NOTE 1 COMPANY INFORMATION"
+      ],
+      "passage_pattern": "NOTE 1 COMPANY INFORMATION.*?NOTE 2 BASIS",
+      "summary": "The company-information note describes an FMCG business with Home Care, Beauty & Wellbeing, Personal Care and Foods segments, manufacturing across India and sales primarily in India. This is company-description evidence, not an independent industry assessment.",
+      "facts": []
+    }
+  ]
+}

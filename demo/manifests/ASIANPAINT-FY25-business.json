@@ -1,0 +1,24 @@
+{
+  "symbol": "ASIANPAINT",
+  "publisher": "Asian Paints Limited",
+  "title": "FY2024\u201325 Annual Report \u2014 company background",
+  "url": "https://www.asianpaints.com/content/dam/asianpaints/website/secondary-navigation/investors/annual-reports/2024-2025/Standalone-Financial_Statements.pdf",
+  "document_hash": "c27143bca538d491e9e889ffed28980257f7a3bed4a1685d223bed5d3cb30b35",
+  "report_date": "2025-05-08",
+  "published_at": null,
+  "ingested_at": "2026-10-27T12:17:09.405073+00:00",
+  "pages": [
+    {
+      "id": "asianpaint-ar25-business-p17",
+      "page": 17,
+      "section": "PDF page 17 / printed page 356, company background",
+      "identity_checks": [
+        "Asian Paints Limited",
+        "Company Background"
+      ],
+      "passage_pattern": "Company Background.*?1\\.\\s",
+      "summary": "The company-background note describes manufacturing, sales and distribution of paints, coatings and home-decor products, bath fittings, kitchens and wardrobes, with related services. The document is the standalone annual financial statements, not consolidated results.",
+      "facts": []
+    }
+  ]
+}

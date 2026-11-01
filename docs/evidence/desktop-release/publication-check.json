@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "checkedFiles": 197,
+  "findings": [],
+  "scope": "Limited known credential patterns and prohibited paths only; no secret files opened, no history audit or image OCR. Review before publishing."
+}

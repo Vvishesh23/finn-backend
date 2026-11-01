@@ -1,0 +1,122 @@
+{
+  "symbol": "LT",
+  "publisher": "Larsen & Toubro Limited",
+  "title": "FY2024\u201325 Annual Report \u2014 consolidated financial statements",
+  "url": "https://www.lnt.in/LTReport2025/pdf/L%26T_AR25.pdf",
+  "document_hash": "542ac1ecfa876aeb94c97fd1241a5a4ff14ce32fac0d69136ed6a6d60442189e",
+  "report_date": "2025-05-08",
+  "published_at": null,
+  "ingested_at": "2026-10-28T06:51:33.184440+00:00",
+  "kind": "annual_report",
+  "pages": [
+    {
+      "id": "lt-fy25-consolidated-p592",
+      "page": 592,
+      "section": "PDF page 592 / printed page 592",
+      "identity_checks": [
+        "Consolidated",
+        "2025",
+        "crore"
+      ],
+      "summary": "Reviewed consolidated financial statements for FY2024\u201325 with FY2023\u201324 comparisons. Original amounts are INR crore; displayed amounts are normalized to INR crore. Approval/report date is not asserted as publication date. EBITDA has not been inferred. ",
+      "facts": [
+        {
+          "id": "LT-2025-annual-consolidated-revenue",
+          "metric": "revenue",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Revenue from operations",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Revenue from operations\\s+34\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "255734.45"
+        },
+        {
+          "id": "LT-2024-annual-consolidated-revenue",
+          "metric": "revenue",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Revenue from operations",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Revenue from operations\\s+34\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "221112.91"
+        },
+        {
+          "id": "LT-2025-annual-consolidated-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Profit before tax after exceptional items; before share of JV/associate profit",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Profit before tax\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "23578.79"
+        },
+        {
+          "id": "LT-2024-annual-consolidated-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Profit before tax after exceptional items; before share of JV/associate profit",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Profit before tax\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "20517.11"
+        },
+        {
+          "id": "LT-2025-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Total profit including non-controlling interests and share of associates/joint ventures",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Profit for the period\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "17673.33"
+        },
+        {
+          "id": "LT-2024-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Total profit including non-controlling interests and share of associates/joint ventures",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Profit for the period\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "15547.10"
+        }
+      ]
+    }
+  ]
+}

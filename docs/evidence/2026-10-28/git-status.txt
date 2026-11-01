@@ -1,0 +1,46 @@
+ M .env.example
+ M README.md
+ M backend/app/analytics.py
+ M backend/app/main.py
+ M backend/app/models.py
+ M backend/app/research.py
+ M backend/tests/test_core.py
+ M demo/bars.json
+ M demo/filings.json
+ M docs/BRIEF_SOURCE_GAPS.md
+ M docs/DEPLOYMENT_STEPS.md
+ M docs/RESUME_HERE.md
+ M docs/TEST_RESULTS.md
+ M docs/WORKLOG.md
+ M docs/checkpoints/LATEST_CHECKPOINT.md
+ M frontend/app.js
+ M frontend/style.css
+ M scripts/verify_replay.py
+?? CODEX_HANDOFF.md
+?? GPT_REVIEW.md
+?? backend/app/evidence.py
+?? backend/app/reasoning.py
+?? backend/requirements-pdf.txt
+?? backend/tests/test_evidence.py
+?? backend/tests/test_ingestion.py
+?? backend/tests/test_reasoning.py
+?? demo/evidence.json
+?? demo/facts.json
+?? demo/guidance.json
+?? demo/manifests/
+?? docs/AUTHORITATIVE_ASSESSMENT.md
+?? docs/RUNTIME_REASONING.md
+?? docs/checkpoints/CP06_GENERIC_EVIDENCE.md
+?? docs/checkpoints/CP07_BOUNDED_REASONING.md
+?? docs/checkpoints/CP08_PORTFOLIO_PUSH_AND_HANDOFF.md
+?? docs/evidence/2026-10-28/
+?? docs/evidence/final/
+?? docs/evidence/phase1/
+?? docs/evidence/phase2/
+?? docs/evidence/phase3-acquisition.json
+?? docs/evidence/phase3/
+?? render.yaml
+?? scripts/ingest_reviewed_pdf.py
+?? scripts/promote_evidence.py
+?? scripts/refresh_portfolio.py
+?? scripts/smoke_url.py

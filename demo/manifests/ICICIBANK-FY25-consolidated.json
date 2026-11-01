@@ -1,0 +1,58 @@
+{
+  "symbol": "ICICIBANK",
+  "publisher": "ICICI Bank Limited",
+  "title": "FY2024\u201325 Annual Report \u2014 consolidated financial statements",
+  "url": "https://www.icici.bank.in/content/dam/icicibank/managed-assets/docs/investor/annual-reports/2025/icici-bank-2025-financial-statements.pdf",
+  "document_hash": "774a4a2286824d7ab7b317ba9fe02659577362a121b831736f595773b1033077",
+  "report_date": "2025-04-19",
+  "published_at": null,
+  "ingested_at": "2026-10-28T06:51:33.185765+00:00",
+  "kind": "annual_report",
+  "pages": [
+    {
+      "id": "icicibank-fy25-consolidated-p130",
+      "page": 130,
+      "section": "PDF page 130 / printed page 267",
+      "identity_checks": [
+        "Consolidated",
+        "2025",
+        "000s"
+      ],
+      "summary": "Reviewed consolidated financial statements for FY2024\u201325 with FY2023\u201324 comparisons. Original amounts are INR thousand; displayed amounts are normalized to INR crore. Approval/report date is not asserted as publication date. Banking accounts: revenue, PBT and EBITDA have not been normalized or inferred.",
+      "facts": [
+        {
+          "id": "ICICIBANK-2025-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Indian GAAP (banking)",
+          "definition": "Total net profit before deducting minority interest, including associates; banking Indian GAAP",
+          "currency": "INR",
+          "scale": "thousand",
+          "pattern": "Net profit for the year before deducting minority interest\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "545693756"
+        },
+        {
+          "id": "ICICIBANK-2024-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Indian GAAP (banking)",
+          "definition": "Total net profit before deducting minority interest, including associates; banking Indian GAAP",
+          "currency": "INR",
+          "scale": "thousand",
+          "pattern": "Net profit for the year before deducting minority interest\\s+[\\d,]+(?:\\.\\d+)?\\s+(?P<value>[\\d,]+(?:\\.\\d+)?)",
+          "expected_value": "460805127"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "symbol": "POWERGRID",
+    "url": "https://www.powergrid.in/sites/default/files/annual-results/BSENSEOutcomedt19052025_0.PDF",
+    "status": "downloaded",
+    "bytes": 5676583,
+    "sha256": "4013cbe27d87e517d554921092b041cfb947a94d05a9424982f87b85870f2144"
+  },
+  {
+    "symbol": "NTPC",
+    "url": "https://www.ntpc.co.in/sites/default/files/annual-report/complete-reports/Annual%20Report%202024-25_1.pdf",
+    "status": "downloaded",
+    "bytes": 34196200,
+    "sha256": "28f32ae3803bc5aec87b49176df1e056d0cc9cf2c2a8d78f9144bc72c1b7cbbd"
+  }
+]

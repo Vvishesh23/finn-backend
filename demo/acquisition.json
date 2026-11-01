@@ -1,0 +1,54 @@
+[
+  {
+    "id": "results",
+    "url": "https://www.infosys.com/investors/reports-filings/quarterly-results/2024-2025/q4/documents/q4-and-12m-fy25-financial-results-auditorsreports.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "concall",
+    "url": "https://www.infosys.com/investors/reports-filings/quarterly-results/2024-2025/q4/documents/transcripts/earningscall.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "prior_concall",
+    "url": "https://www.infosys.com/investors/reports-filings/quarterly-results/2023-2024/q4/documents/transcripts/earningscall.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "annual",
+    "url": "https://www.infosys.com/investors/reports-filings/annual-report/annual/documents/infosys-ar-25.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "nse",
+    "url": "https://www.nseindia.com/api/corporate-announcements?index=equities&symbol=INFY",
+    "status": 200,
+    "bytes": 2091580,
+    "contentType": "application/json; charset=utf-8",
+    "path": "work/sources/nse.json"
+  },
+  {
+    "id": "yahoo_INFY",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/INFY.NS?range=3mo&interval=1d",
+    "status": 200,
+    "bytes": 6579,
+    "contentType": "application/json;charset=utf-8",
+    "path": "work/sources/yahoo_INFY.json"
+  },
+  {
+    "id": "yahoo_RELIANCE",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.NS?range=3mo&interval=1d",
+    "status": 200,
+    "bytes": 6683,
+    "contentType": "application/json;charset=utf-8",
+    "path": "work/sources/yahoo_RELIANCE.json"
+  },
+  {
+    "id": "yahoo_HDFCBANK",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/HDFCBANK.NS?range=3mo&interval=1d",
+    "status": 200,
+    "bytes": 6741,
+    "contentType": "application/json;charset=utf-8",
+    "path": "work/sources/yahoo_HDFCBANK.json"
+  }
+]

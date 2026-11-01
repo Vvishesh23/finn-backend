@@ -1,0 +1,37 @@
+[
+  {
+    "symbol": "TCS",
+    "url": "https://www.tcs.com/content/dam/tcs/investor-relations/financial-statements/2024-25/ar/annual-report-2024-2025.pdf",
+    "status": "failed",
+    "error": "Command '['curl', '--http1.1', '--fail', '--silent', '--show-error', '--location', '--max-time', '35', '--max-filesize', '40000000', 'https://www.tcs.com/content/dam/tcs/investor-relations/financial-statements/2024-25/ar/annual-report-2024-2025.pdf']' returned non-zero exit status 22.",
+    "detail": "curl: (22) The requested URL returned error: 403\n"
+  },
+  {
+    "symbol": "RELIANCE",
+    "url": "https://www.ril.com/ar2024-25/pdf/RIL-IAR-2025.pdf",
+    "status": "downloaded",
+    "bytes": 11776993,
+    "sha256": "bc18c9a8579a5baf35b11fc089baec489c962e08a6d812824f8a88859b4747a2"
+  },
+  {
+    "symbol": "NTPC",
+    "url": "https://www.ntpc.co.in/sites/default/files/annual-report/complete-reports/Annual%20Report%202024-25_1.pdf",
+    "status": "failed",
+    "error": "Command '['curl', '--http1.1', '--fail', '--silent', '--show-error', '--location', '--max-time', '35', '--max-filesize', '40000000', 'https://www.ntpc.co.in/sites/default/files/annual-report/complete-reports/Annual%20Report%202024-25_1.pdf']' returned non-zero exit status 28.",
+    "detail": "curl: (28) Operation timed out after 33143 milliseconds with 17628169 out of 34196200 bytes received\n"
+  },
+  {
+    "symbol": "LT",
+    "url": "https://www.lnt.in/LTReport2025/pdf/L%26T_AR25.pdf",
+    "status": "downloaded",
+    "bytes": 21000707,
+    "sha256": "542ac1ecfa876aeb94c97fd1241a5a4ff14ce32fac0d69136ed6a6d60442189e"
+  },
+  {
+    "symbol": "DRREDDY",
+    "url": "https://api-dev.drreddys.com/images/Integrated-Annual-Report-2024-25.pdf",
+    "status": "downloaded",
+    "bytes": 16661797,
+    "sha256": "146edbd29325925bf415531925d3daf87ec0686d734fd89f5f31e1657811b320"
+  }
+]

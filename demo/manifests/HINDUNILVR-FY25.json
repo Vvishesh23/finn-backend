@@ -1,0 +1,121 @@
+{
+  "symbol": "HINDUNILVR",
+  "publisher": "Hindustan Unilever Limited",
+  "title": "FY2024\u201325 Integrated Annual Report \u2014 consolidated statement",
+  "url": "https://www.hul.co.in/files/annual-report-2024-25.pdf",
+  "document_hash": "fb08b0d08fc1cf6a60b5385d77b4bf5a390b8b55fbc9d686835bfcdea53ef1e6",
+  "report_date": "2025-04-24",
+  "published_at": null,
+  "ingested_at": "2026-10-27T12:17:09.405073+00:00",
+  "pages": [
+    {
+      "id": "hul-ar25-consolidated-p186",
+      "page": 186,
+      "section": "PDF page 186 / printed pages 368\u2013369, consolidated profit and loss",
+      "identity_checks": [
+        "Consolidated Statement of Profit and Loss",
+        "HINDUSTAN UNILEVER LIMITED",
+        "crores"
+      ],
+      "summary": "Reviewed consolidated annual Ind-AS profit-and-loss figures, not standalone figures. Total profit includes non-controlling interests. Approval date is not claimed to be the publication date.",
+      "facts": [
+        {
+          "id": "HINDUNILVR-2025-annual-consolidated-revenue",
+          "metric": "revenue",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "revenue",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Revenue from operations\\s+27\\s+(?P<value>[\\d,]+)",
+          "expected_value": "63121"
+        },
+        {
+          "id": "HINDUNILVR-2024-annual-consolidated-revenue",
+          "metric": "revenue",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "revenue",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Revenue from operations\\s+27\\s+[\\d,]+\\s+(?P<value>[\\d,]+)",
+          "expected_value": "61896"
+        },
+        {
+          "id": "HINDUNILVR-2025-annual-consolidated-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "pbt",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Profit before tax\\s+(?P<value>[\\d,]+)",
+          "expected_value": "14415"
+        },
+        {
+          "id": "HINDUNILVR-2024-annual-consolidated-pbt",
+          "metric": "pbt",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "pbt",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "Profit before tax\\s+[\\d,]+\\s+(?P<value>[\\d,]+)",
+          "expected_value": "13926"
+        },
+        {
+          "id": "HINDUNILVR-2025-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2025,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2024-04-01",
+          "period_end": "2025-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Total profit including non-controlling interests",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "PROFIT FOR THE YEAR \\(A\\)\\s+(?P<value>[\\d,]+)",
+          "expected_value": "10671"
+        },
+        {
+          "id": "HINDUNILVR-2024-annual-consolidated-pat",
+          "metric": "pat",
+          "fiscal_year": 2024,
+          "quarter": null,
+          "period_type": "annual",
+          "period_start": "2023-04-01",
+          "period_end": "2024-03-31",
+          "basis": "consolidated",
+          "accounting_standard": "Ind-AS",
+          "definition": "Total profit including non-controlling interests",
+          "currency": "INR",
+          "scale": "crore",
+          "pattern": "PROFIT FOR THE YEAR \\(A\\)\\s+[\\d,]+\\s+(?P<value>[\\d,]+)",
+          "expected_value": "10282"
+        }
+      ]
+    }
+  ]
+}

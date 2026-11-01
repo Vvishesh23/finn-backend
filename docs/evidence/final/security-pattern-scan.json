@@ -1,0 +1,5 @@
+{
+  "matchingFiles": [],
+  "scope": "Project text files excluding git/venv/caches",
+  "limitation": "Common credential shape scan only, not a security audit"
+}

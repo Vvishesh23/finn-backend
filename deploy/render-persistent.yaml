@@ -1,0 +1,30 @@
+# Owner-applied only. Paid compute + persistent disk; no purchase is authorized here.
+# Use this blueprint path explicitly; do not use the legacy ephemeral render.yaml.
+services:
+  - type: web
+    name: finn-persistent-demo
+    runtime: python
+    plan: starter
+    numInstances: 1
+    autoDeploy: false
+    buildCommand: pip install -r backend/requirements.lock
+    startCommand: python -m uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT --workers 1 --no-proxy-headers --no-access-log
+    healthCheckPath: /health
+    disk:
+      name: finn-quota-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.12
+      - key: FINN_DB
+        value: /var/data/finn.sqlite3
+      - key: AI_BUDGET_STORAGE_PERSISTENT
+        value: "true"
+      - key: AI_ENABLED
+        value: "false"
+      - key: REASONING_PROVIDER
+        value: disabled
+      - key: GEMINI_REASON_MODEL
+        value: gemini-3.5-flash-lite
+# GEMINI_API_KEY deliberately absent. Owner adds runtime secret outside Codex later.
