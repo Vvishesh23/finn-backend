@@ -1,7 +1,7 @@
 """Owner-operated bounded refresh. No public write endpoint and no Gemini access.
 Dry run by default; --apply writes only to the explicitly configured store.
 """
-import argparse,datetime,hashlib,json,time,uuid
+import argparse,datetime,hashlib,json,time,uuid,sys
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 from . import store
@@ -82,12 +82,13 @@ def freshness(now=None):
         'method':'Owner CLI / optional external workflow; no Render background scheduler',
         'note':'A successful check is not proof of complete source coverage or a new event. EOD excludes the in-progress IST day. Old research corpus remains separate.'}
 
-def run(symbols,apply=False,fetch=request_json):
+def run(symbols,apply=False,fetch=request_json,progress=None):
     today=datetime.datetime.now(ZoneInfo('Asia/Kolkata')).date().isoformat();results=[]
     for symbol in symbols:
         if symbol not in {c['symbol'] for c in store.COMPANIES}:raise ValueError('Outside watchlist')
         for kind,url in [('filings','https://www.nseindia.com/api/corporate-announcements?index=equities&symbol='+quote(symbol)),('bars','https://query1.finance.yahoo.com/v8/finance/chart/'+quote(symbol)+'.NS?range=3mo&interval=1d&events=div%2Csplits')]:
             attempt={'symbol':symbol,'kind':kind,'attempted_at':stamp(),'status':'SUCCESS'}
+            if progress:progress({**attempt,'status':'CHECKING'})
             try:
                 data=fetch(url)
                 rows=normalize_filings(symbol,data,attempt['attempted_at'],limit=250) if kind=='filings' else normalize_prices(symbol,data,attempt['attempted_at'],today)
@@ -98,11 +99,14 @@ def run(symbols,apply=False,fetch=request_json):
                 result={**attempt,'status':'FAILED','reason':type(exc).__name__}
                 if apply:record_failure(result)
             results.append(result)
+            if progress:progress(result)
             time.sleep(.25)
     return {'applied':apply,'attempts':results,'allSucceeded':all(r['status']=='SUCCESS' for r in results)}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--apply',action='store_true');p.add_argument('--symbol',action='append');a=p.parse_args()
-    result=run(a.symbol or [c['symbol'] for c in store.COMPANIES],a.apply)
+    def progress(row):
+        print(row['symbol']+' '+row['kind']+': '+row['status']+' (added '+str(row.get('added','—'))+', duplicates '+str(row.get('duplicates','—'))+')',file=sys.stderr,flush=True)
+    result=run(a.symbol or [c['symbol'] for c in store.COMPANIES],a.apply,progress=progress)
     print(json.dumps(result,indent=2));return 0 if result['allSucceeded'] else 1
 if __name__=='__main__':raise SystemExit(main())
