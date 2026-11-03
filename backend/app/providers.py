@@ -51,13 +51,18 @@ class GeminiReasoningProvider:
                 system_instruction=payload['systemInstruction']['parts'][0]['text'],
                 temperature=0,max_output_tokens=config['max_output'],response_mime_type='application/json',
                 response_json_schema=payload['generationConfig']['responseJsonSchema'],
+                thinking_config=(types.ThinkingConfig(**payload['generationConfig']['thinkingConfig'])
+                    if 'thinkingConfig' in payload['generationConfig'] else None),
                 tools=[],automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True))
             response=client.models.generate_content(model=model,contents=payload['contents'],config=generation)
             # Accept only normal bounded text, never a function-call/tool result.
             raw=response.text or ''
             if len(raw.encode())>64000:raise ProviderError(503)
             tokens=getattr(getattr(response,'usage_metadata',None),'total_token_count',0) or 0
-            return {'candidates':[{'content':{'parts':[{'text':raw}]}}],'usageMetadata':{'totalTokenCount':tokens}}
+            candidates=getattr(response,'candidates',None) or []
+            finish=getattr(candidates[0],'finish_reason',None) if candidates else None
+            finish=getattr(finish,'value',finish)
+            return {'candidates':[{'finishReason':finish,'content':{'parts':[{'text':raw}]}}],'usageMetadata':{'totalTokenCount':tokens}}
         except ProviderError:raise
         except Exception as exc:
             # No provider response body, headers, secret or exception string crosses boundary.

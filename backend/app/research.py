@@ -10,7 +10,7 @@ LABELS={'revenue':'Revenue','pbt':'PBT','pat':'PAT (total profit)','ebitda':'EBI
 
 def parse_period(question,intent):
     text=question.lower();years=[]
-    if re.search(r'\b(latest|today|current|last|next|previous|ytd|ttm|calendar)\b',text):return None,None,'UNSUPPORTED_OR_AMBIGUOUS'
+    if re.search(r'\b(latest|today|current|last|next|previous|ytd|ttm|calendar)\b|\bthis\s+(?:year|quarter|month)\b',text):return None,None,'UNSUPPORTED_OR_AMBIGUOUS'
     def fiscal(m):
         start=int(m[1]);start=start+2000 if start<100 else start
         end=int(m[2]) if m[2] else None
@@ -122,12 +122,25 @@ def evidence_status(rows):
     known=sum(r['current'] is not None for r in rows)
     return 'MISSING' if not known else 'VERIFIED_DERIVED' if known==len(rows) else 'PARTIAL'
 
+def coverage_help(symbol,sources,repo):
+    """Describe only verified periods available at the requested as-of cutoff."""
+    allowed={s.id for s in sources if s.evidence_method!='pdf_extracted_unverified'}
+    periods=sorted({(f.fiscal_year,f.quarter) for f in repo.facts
+        if f.symbol==symbol and f.evidence_id in allowed and f.verification!='unverified'},
+        key=lambda p:(p[0],p[1] or 0),reverse=True)
+    labels=[f'Q{q} FY{str(y)[-2:]}' if q else f'FY{str(y)[-2:]} annual' for y,q in periods]
+    if not labels:return 'No verified financial periods are available for this ticker at the selected cutoff.'
+    y,q=periods[0];example=f'Q{q} FY{str(y)[-2:]}' if q else f'FY{str(y)[-2:]}'
+    return ('Available verified financial periods: '+', '.join(labels)+'. '
+        'Current-year performance and future outlook require matching verified results and management disclosures; historical figures are not a forecast. '
+        f'Try: "{example} revenue and profit". Missing metrics will remain explicit.')
+
 def answer(q,client_id="internal",cache_scope="internal"):
     p=plan(q);repo=evidence.REPOSITORY;STATS['queries']+=1
     sources=repo.sources(q.symbol,q.as_of)
     # Full evidence/fact/guidance version, including raw revisions, prevents stale fact answers.
     version=[reasoning.configuration(),reasoning.PROMPT_VERSION,repo.version,[(d['id'],d.get('hash')) for d in store.DOCS],store.filings(allow_snapshot_fallback=True)]
-    key=hashlib.sha256(json.dumps([cache_scope,q.model_dump(mode='json'),p.model_dump(),version,'private-research-v4'],sort_keys=True).encode()).hexdigest()
+    key=hashlib.sha256(json.dumps([cache_scope,q.model_dump(mode='json'),p.model_dump(),version,'private-research-v5'],sort_keys=True).encode()).hexdigest()
     with reasoning.single_flight(key):
         return _answer(q,p,repo,sources,key,client_id)
 
@@ -137,6 +150,8 @@ def _answer(q,p,repo,sources,key,client_id):
     result={'plan':p.model_dump(),'cacheHit':False,'modelCalls':0,'replayMode':True,'asOf':q.as_of.isoformat() if q.as_of else None,'citations':[],'status':'MISSING','route':'deterministic'}
     if p.period=='UNSUPPORTED_OR_AMBIGUOUS':
         result['answer']='The requested period is ambiguous or not supported. Specify a fiscal year and discrete quarter or annual period; no period was substituted.'
+    elif re.search(r'\b(outlook|forecast|potential|predict(?:ion)?|future)\b',q.question,re.I):
+        result['answer']='Forward-looking analysis is not supported by the reviewed research corpus. No forecast or investment conclusion was generated.'
     elif not sources:
         result['answer']=f'{q.symbol}: source unavailable in this local corpus or as-of cutoff. Ticker syntax is valid; exchange listing status is unverified.'
     elif p.intent=='financial_snapshot' and p.ratio is None and re.search(r'\b(ratio|margin)\b',q.question,re.I):
@@ -197,4 +212,7 @@ def _answer(q,p,repo,sources,key,client_id):
             if model['status']=='insufficient_evidence':result.update(status='MISSING',answer='The available evidence does not support an answer. '+model.get('limitations',''))
         # Provider failures are not durable answers; retain deterministic/retrieval fallback but retry later.
         if model['status']=='unavailable' and model.get('reason')!='not_configured':return result
+    if result['status']=='MISSING':
+        result['coverageExplanation']=coverage_help(q.symbol,sources,repo)
+        result['answer']+=' '+result['coverageExplanation']
     store.cache_put(key,result);return result

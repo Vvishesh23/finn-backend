@@ -10,7 +10,7 @@ from . import store
 from .providers import MockReasoningProvider,GeminiReasoningProvider,DisabledReasoningProvider,ProviderError
 
 MODEL_REFERENCE='https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite'
-PROMPT_VERSION='secure-evidence-claims-v2'
+PROMPT_VERSION='secure-evidence-claims-v3'
 class Claim(BaseModel):
     model_config=ConfigDict(extra='forbid')
     text:str=Field(min_length=1,max_length=1500)
@@ -132,6 +132,11 @@ def interpret(question,symbol,citations,client_id="internal"):
         if not isinstance(reported,int) or reported<0:reported=0
         with store.LOCK:
             store.DB.execute('UPDATE ai_usage SET reported=reported+? WHERE day=?',(reported,day));store.DB.commit()
+        # Account for usage even when the provider truncates or blocks its answer.
+        # The production adapter always includes this field; legacy mocks may omit it.
+        candidate=body['candidates'][0]
+        if 'finishReason' in candidate and candidate['finishReason']!='STOP':
+            raise Unavailable('incomplete_provider_output')
         parts=body['candidates'][0]['content']['parts']
         raw=''.join(p.get('text','') for p in parts if not p.get('thought'))
         parsed=Interpretation.model_validate_json(raw)
