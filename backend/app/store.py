@@ -13,6 +13,9 @@ with LOCK:
             'CREATE TABLE IF NOT EXISTS answers (key TEXT PRIMARY KEY,payload TEXT NOT NULL)',
             'CREATE TABLE IF NOT EXISTS alerts (id TEXT PRIMARY KEY,payload TEXT NOT NULL)',
             'CREATE TABLE IF NOT EXISTS raw_filings (id TEXT PRIMARY KEY,payload TEXT NOT NULL)',
+            'CREATE TABLE IF NOT EXISTS imported_bars (id TEXT PRIMARY KEY,payload TEXT NOT NULL)',
+            'CREATE TABLE IF NOT EXISTS feed_refreshes (id TEXT PRIMARY KEY,payload TEXT NOT NULL)',
+            'CREATE TABLE IF NOT EXISTS feed_revisions (id TEXT PRIMARY KEY,payload TEXT NOT NULL)',
             'CREATE TABLE IF NOT EXISTS private_answers_v2 (key TEXT PRIMARY KEY,payload TEXT NOT NULL,created DOUBLE PRECISION NOT NULL)',
             'CREATE TABLE IF NOT EXISTS ai_usage(day TEXT PRIMARY KEY,calls INTEGER NOT NULL,reserved INTEGER NOT NULL,reported INTEGER NOT NULL,failures INTEGER NOT NULL)',
             'CREATE TABLE IF NOT EXISTS ai_clients(day TEXT,client TEXT,calls INTEGER,PRIMARY KEY(day,client))',
@@ -31,6 +34,18 @@ def filings(allow_snapshot_fallback=False):
             # replacing quota storage or claiming that the remote DB is healthy.
             if allow_snapshot_fallback:return BUNDLED_FILINGS
             raise
+def bars():
+    # Bundled snapshots remain untouched. Imported observations are visible across workers.
+    with LOCK:
+        imported=[json.loads(r[0]) for r in DB.execute('SELECT payload FROM imported_bars')]
+        revisions=[json.loads(r[0]) for r in DB.execute('SELECT payload FROM feed_revisions')]
+    combined={(r['symbol'],r['date'],r['provider'],r['basis']):r for r in BARS}
+    for r in imported:combined[(r['symbol'],r['date'],r['provider'],r['basis'])]=r
+    for revision in revisions:
+        if revision['kind']=='bars':
+            r=revision['candidate'];key=(r['symbol'],r['date'],r['provider'],r['basis'])
+            if key in combined:combined[key]={**combined[key],'price_review_required':True}
+    return sorted(combined.values(),key=lambda r:(r['symbol'],r['date']))
 def cache_get(key):
     with LOCK:
         try:row=DB.execute('SELECT payload FROM private_answers_v2 WHERE key=? AND created>?',(key,time.time()-86400)).fetchone()

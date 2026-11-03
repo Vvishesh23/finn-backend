@@ -22,6 +22,7 @@ def anomalies(bars,price_pct,volume_multiple):
     current=valid[-1]; prior=valid[-21:-1]
     if any(b['basis']!=current['basis'] or b['provider']!=current['provider'] for b in prior):return {'status':'NOT_COMPARABLE','alerts':[]}
     if any(not math.isfinite(b['close']) or b['close']<=0 or not math.isfinite(b['volume']) or b['volume']<0 for b in [*prior,current]):return {'status':'BAD_DATA','alerts':[]}
+    if any(b.get('price_review_required') for b in [*prior,current]):return {'status':'SOURCE_CORRECTION_REVIEW','alerts':[]}
     if current.get('corporate_action') or any(b.get('corporate_action') for b in prior):return {'status':'CORPORATE_ACTION_REVIEW','alerts':[]}
     pct=change(current['close'],prior[-1]['close']);avg=sum(b['volume'] for b in prior)/20
     ratio=current['volume']/avg if avg else None
@@ -56,8 +57,13 @@ def category(f):
     return 'unclassified',10
 
 def group_filings(raw):
-    groups={}
+    revisions={}
     for f in raw:
+        key=(f['source_exchange'],f['symbol'],f.get('original_id',f['id']))
+        previous=revisions.get(key)
+        if previous is None or f.get('available_at',f['source_published_at'])>previous.get('available_at',previous['source_published_at']):revisions[key]=f
+    groups={}
+    for f in revisions.values():
         key=(f['symbol'],f.get('attachment_hash') or f['url'])
         if key not in groups:
             c,score=category(f)
@@ -68,7 +74,7 @@ def group_filings(raw):
 
 def digest(raw,start,end,cat=None,symbol=None):
     # Filter before grouping: no future duplicate source can leak into an as-of view.
-    known=[f for f in raw if start<=datetime.fromisoformat(f['source_published_at'])<=end]
+    known=[f for f in raw if start<=datetime.fromisoformat(f['source_published_at'])<=end and datetime.fromisoformat(f.get('available_at',f['source_published_at']))<=end]
     return [e for e in group_filings(known) if (not cat or e['category']==cat) and (not symbol or e['symbol']==symbol)]
 
 def guidance_outcome(low,high,actual,explicit=True,comparable=True):

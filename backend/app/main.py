@@ -1,16 +1,17 @@
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
 from collections import defaultdict,deque
-import time,threading
+from zoneinfo import ZoneInfo
+import time,threading,os
 from fastapi import FastAPI,HTTPException,Request,Query as Param
 from fastapi.responses import JSONResponse,FileResponse
 from fastapi.staticfiles import StaticFiles
-from . import store,research,evidence,reasoning,client_privacy
+from . import store,research,evidence,reasoning,client_privacy,refresh
 from .models import Query,Company,DailyBar,SourceDocument,RawFiling
 from .analytics import anomalies,digest,group_filings,CATEGORIES
 app=FastAPI(title='FINN',version='0.1.0')
 for c in store.COMPANIES:Company.model_validate(c)
-for b in store.BARS:DailyBar.model_validate(b)
+for b in store.bars():DailyBar.model_validate(b)
 for d in store.DOCS:SourceDocument.model_validate(d)
 for f in store.filings():RawFiling.model_validate(f)
 requests=defaultdict(deque);rate_lock=threading.Lock()
@@ -47,23 +48,26 @@ async def storage_errors(request,exc):return JSONResponse({'error':'STORAGE_UNAV
 @app.get('/health')
 def health():
     with store.LOCK:store.DB.execute('SELECT 1')
-    return {'storageEngine':store.DB.kind,'status':'ok','mode':'AUTHENTIC_HISTORICAL_REPLAY','modelEnabled':reasoning.configuration()['enabled'],'reasoningProvider':reasoning.configuration()['provider'],'latestFilingAt':max(f['source_published_at'] for f in store.filings()),'asOf':max(b['date'] for b in store.BARS),'refresh':'On-demand imported snapshot; no background polling'}
+    release=os.environ.get('RENDER_GIT_COMMIT','')
+    return {'storageEngine':store.DB.kind,'status':'ok','releaseCommit':release if __import__('re').fullmatch('[a-f0-9]{40}',release) else None,'mode':'AUTHENTIC_HISTORICAL_REPLAY','modelEnabled':reasoning.configuration()['enabled'],'reasoningProvider':reasoning.configuration()['provider'],'latestFilingAt':max(f['source_published_at'] for f in store.filings()),'asOf':max(b['date'] for b in store.bars()),'refresh':'Owner-operated persistent refresh; no background polling','freshness':refresh.freshness()}
 def symbol_ok(s):
     try:return Query(symbol=s,question='overview').symbol
     except Exception:raise HTTPException(422,'Invalid ticker')
-def company_data(c):
-    bars=[b for b in store.BARS if b['symbol']==c['symbol']]
+def company_data(c,all_bars=None):
+    bars=[b for b in (store.bars() if all_bars is None else all_bars) if b['symbol']==c['symbol']]
     a=anomalies(bars,3,2)
     return {**c,'bar':bars[-1] if bars else None,'observation':a,'sourceStatus':'HISTORICAL_SNAPSHOT' if bars else 'MISSING','replayMode':True}
 @app.get('/api/watchlist')
-def watchlist():return {'companies':[company_data(c) for c in store.COMPANIES],'mock':True,'listingStatus':'Example labels; not a certified current listings master'}
+def watchlist():
+    bars=store.bars()
+    return {'companies':[company_data(c,bars) for c in store.COMPANIES],'mock':True,'listingStatus':'Example labels; not a certified current listings master'}
 @app.get('/api/brief')
-def brief(start:datetime|None=None,end:datetime|None=None,hours:int=Param(default=24,ge=1,le=87600),category:str|None=None,symbol:str|None=None):
+def brief(start:datetime|None=None,end:datetime|None=None,hours:int=Param(default=24,ge=1,le=87600),category:str|None=None,symbol:str|None=None,dataset:str=Param(default='imported',pattern='^(imported|bundled)$')):
     end=end or datetime.now(timezone.utc);start=start or end-timedelta(hours=hours)
     if start.tzinfo is None or end.tzinfo is None:raise HTTPException(422,'Use timestamps with timezone')
     if start>end:raise HTTPException(422,'Start must be before end')
-    items=digest(store.filings(),start,end,category,symbol_ok(symbol) if symbol else None)
-    return {'events':items,'asOf':end.isoformat(),'from':start.isoformat(),'replayMode':True,'sourceStatus':'IMPORTED_SNAPSHOT','count':len(items)}
+    items=digest(store.BUNDLED_FILINGS if dataset=='bundled' else store.filings(),start,end,category,symbol_ok(symbol) if symbol else None)
+    return {'events':items,'asOf':end.isoformat(),'from':start.isoformat(),'replayMode':True,'sourceStatus':'IMPORTED_SNAPSHOT','count':len(items),'freshness':refresh.freshness()}
 @app.get('/api/company/{symbol}')
 def company(symbol:str):
     s=symbol_ok(symbol);c=next((c for c in store.COMPANIES if c['symbol']==s),None)
@@ -76,6 +80,8 @@ def guidance(symbol:str):return research.guidance(symbol_ok(symbol))
 def filings(symbol:str):return {'events':group_filings([f for f in store.filings() if f['symbol']==symbol_ok(symbol)])}
 @app.get('/api/coverage')
 def coverage():return evidence.REPOSITORY.coverage()
+@app.get('/api/freshness')
+def freshness():return refresh.freshness()
 @app.get('/api/categories')
 def categories():return {'categories':CATEGORIES}
 
@@ -89,10 +95,14 @@ def alerts(price_pct:float=Param(default=3,ge=.1,le=50),volume_multiple:float=Pa
     watched={c['symbol'] for c in store.COMPANIES}
     filing_alerts=[{'id':'filing-'+e['id'],'event':e,'kind':'filing','symbol':e['symbol']} for e in events if e['category'] in selected and e['symbol'] in watched]
     for alert in filing_alerts:store.save_alert(alert)
-    observations={c['symbol']:anomalies([b for b in store.BARS if b['symbol']==c['symbol']],price_pct,volume_multiple) for c in store.COMPANIES}
+    bars=store.bars()
+    if filing_end:
+        cutoff=filing_end.astimezone(ZoneInfo('Asia/Kolkata'))
+        bars=[b for b in bars if b['date']<cutoff.date().isoformat() or (b['date']==cutoff.date().isoformat() and cutoff.hour>=16)]
+    observations={c['symbol']:anomalies([b for b in bars if b['symbol']==c['symbol']],price_pct,volume_multiple) for c in store.COMPANIES}
     active=[a for o in observations.values() for a in o['alerts']]
     for a in active:store.save_alert(a)
-    return {'alerts':active,'filingAlerts':filing_alerts,'observations':observations,'replayMode':True,'rule':{'price_pct':price_pct,'volume_multiple':volume_multiple,'categories':selected},'filingWindowEnd':now.isoformat(),'priceAsOf':max(b['date'] for b in store.BARS),'cadence':'Imported EOD snapshot; manual checks only'}
+    return {'alerts':active,'filingAlerts':filing_alerts,'observations':observations,'replayMode':True,'rule':{'price_pct':price_pct,'volume_multiple':volume_multiple,'categories':selected},'filingWindowEnd':now.isoformat(),'priceAsOf':max((b['date'] for b in bars),default=None),'cadence':'Imported EOD snapshot; manual checks only'}
 @app.post('/api/research/query')
 def query(q:Query,request:Request):
     if len(q.question)>reasoning.integer('MAX_QUERY_CHARS',2000,100,2000):
