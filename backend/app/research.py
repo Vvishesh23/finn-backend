@@ -126,7 +126,7 @@ def answer(q,client_id="internal",cache_scope="internal"):
     p=plan(q);repo=evidence.REPOSITORY;STATS['queries']+=1
     sources=repo.sources(q.symbol,q.as_of)
     # Full evidence/fact/guidance version, including raw revisions, prevents stale fact answers.
-    version=[reasoning.configuration(),reasoning.PROMPT_VERSION,repo.version,[(d['id'],d.get('hash')) for d in store.DOCS],store.filings()]
+    version=[reasoning.configuration(),reasoning.PROMPT_VERSION,repo.version,[(d['id'],d.get('hash')) for d in store.DOCS],store.filings(allow_snapshot_fallback=True)]
     key=hashlib.sha256(json.dumps([cache_scope,q.model_dump(mode='json'),p.model_dump(),version,'private-research-v4'],sort_keys=True).encode()).hexdigest()
     with reasoning.single_flight(key):
         return _answer(q,p,repo,sources,key,client_id)

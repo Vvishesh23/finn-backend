@@ -32,9 +32,9 @@ def configuration():
     if not re.fullmatch(r'gemini-[a-z0-9.-]{1,70}',model):enabled=False
     persistent=os.environ.get('AI_BUDGET_STORAGE_PERSISTENT','false').lower()=='true'
     storage_path=os.environ.get('FINN_DB','')
-    storage_suitable=bool(storage_path) and storage_path!=':memory:' and not storage_path.startswith(('/tmp/','/private/tmp/','/var/tmp/'))
+    storage_suitable=store.DB.kind=='postgres' or (bool(storage_path) and storage_path!=':memory:' and not storage_path.startswith(('/tmp/','/private/tmp/','/var/tmp/')))
     if provider=='gemini' and not (persistent and storage_suitable):enabled=False
-    return {'enabled':enabled,'provider':provider,'model':model,'persistent':persistent,
+    return {'enabled':enabled,'provider':provider,'model':model,'persistent':persistent,'storageEngine':store.DB.kind,
         'max_calls':integer('MAX_AI_REQUESTS_PER_DAY',100,1,1000),
         'client_daily':integer('MAX_AI_REQUESTS_PER_CLIENT_DAY',20,1,100),
         'global_minute':integer('MAX_AI_REQUESTS_PER_MINUTE_GLOBAL',6,1,100),
@@ -75,7 +75,7 @@ def usage():
     with store.LOCK:
         row=store.DB.execute('SELECT calls,reserved,reported,failures FROM ai_usage WHERE day=?',(day,)).fetchone() or (0,0,0,0)
     cfg=configuration()
-    return {'dayUTC':day,'callsAttempted':row[0],'conservativelyReservedTokens':row[1],'providerReportedTokens':row[2],'failures':row[3],'maxCalls':cfg['max_calls'],'dailyTokenBudget':cfg['max_tokens'],'modelEnabled':cfg['enabled'],'model':cfg['model'],'concurrencyScope':'Atomic SQLite leases; all workers must share the same persistent file on one host','storageDeclaredPersistent':cfg['persistent'],'provider':cfg['provider'],'moneySpent':'NOT_MEASURED; provider billing and free-tier availability are account-specific'}
+    return {'dayUTC':day,'callsAttempted':row[0],'conservativelyReservedTokens':row[1],'providerReportedTokens':row[2],'failures':row[3],'maxCalls':cfg['max_calls'],'dailyTokenBudget':cfg['max_tokens'],'modelEnabled':cfg['enabled'],'model':cfg['model'],'storageEngine':store.DB.kind,'concurrencyScope':('Shared PostgreSQL transaction locks and leases' if store.DB.kind=='postgres' else 'Atomic SQLite leases; all workers must share the same persistent file on one host'),'storageDeclaredPersistent':cfg['persistent'],'provider':cfg['provider'],'moneySpent':'NOT_MEASURED; provider billing and free-tier availability are account-specific'}
 
 def numeric_tokens(text):return set(re.findall(r'(?<![a-zA-Z])[-+]?\d+(?:[.,]\d+)*(?:%|×)?',text))
 
@@ -145,11 +145,15 @@ def interpret(question,symbol,citations,client_id="internal"):
         return {'status':'answered' if parsed.claims else 'insufficient_evidence','claims':[c.model_dump() for c in parsed.claims],'limitations':parsed.limitations,'calls':calls,'tokens':reported,'model':cfg['model'],'provider':cfg['provider']}
     except Exception as exc:
         # Never expose provider body, request headers, secret, URL query or exception string.
-        reason=exc.reason if isinstance(exc,Denied) else str(exc) if isinstance(exc,Unavailable) else 'provider_or_validation_error'
+        reason=exc.reason if isinstance(exc,Denied) else 'storage_unavailable' if isinstance(exc,store.StorageUnavailable) else str(exc) if isinstance(exc,Unavailable) else 'provider_or_validation_error'
         status=exc.status if isinstance(exc,Denied) else 429 if reason=='provider_rate_limited' else 503
         if day:
-            with store.LOCK:
-                store.DB.execute('UPDATE ai_usage SET failures=failures+1 WHERE day=?',(day,));store.DB.commit()
+            try:
+                with store.LOCK:
+                    store.DB.execute('UPDATE ai_usage SET failures=failures+1 WHERE day=?',(day,));store.DB.commit()
+            except store.StorageUnavailable:pass
         return {'status':'unavailable','reason':reason,'calls':calls,'httpStatus':status}
     finally:
-        if lease:release(lease)
+        if lease:
+            try:release(lease)
+            except store.StorageUnavailable:pass # Expiring lease stays conservative on outage.

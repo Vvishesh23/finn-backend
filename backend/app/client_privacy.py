@@ -3,7 +3,7 @@ import hashlib,hmac,secrets,ipaddress,os
 from . import store
 with store.LOCK:
     store.DB.execute('CREATE TABLE IF NOT EXISTS security_meta(name TEXT PRIMARY KEY,value TEXT NOT NULL)')
-    store.DB.execute('INSERT OR IGNORE INTO security_meta VALUES (?,?)',('session_signer',secrets.token_hex(32)))
+    store.DB.execute('INSERT INTO security_meta VALUES (?,?) ON CONFLICT DO NOTHING',('session_signer',secrets.token_hex(32)))
     SIGNER=bytes.fromhex(store.DB.execute('SELECT value FROM security_meta WHERE name=?',('session_signer',)).fetchone()[0])
     store.DB.commit()
 def digest(text):return hmac.new(SIGNER,text.encode(),hashlib.sha256).hexdigest()

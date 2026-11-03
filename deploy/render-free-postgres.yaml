@@ -1,0 +1,27 @@
+# Render Free compute + owner-provisioned external PostgreSQL (e.g. Neon Free).
+# No local quota file or disk. Secrets entered privately by the owner in Render.
+services:
+  - type: web
+    name: finn-backend
+    runtime: docker
+    plan: free
+    numInstances: 1
+    autoDeploy: false
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: FINN_STORAGE_BACKEND
+        value: postgres
+      - key: AI_BUDGET_STORAGE_PERSISTENT
+        value: "true"
+      - key: AI_ENABLED
+        value: "true"
+      - key: REASONING_PROVIDER
+        value: gemini
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+# Startup fails safely if PostgreSQL configuration is absent/invalid/unreachable.
+# No paid service, database account, secret or public URL has been created here.

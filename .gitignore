@@ -31,3 +31,23 @@ credentials*.json
 *service-account*.json
 /dist/
 /frontend-publish/
+
+# Minimal deployment repository: local review material stays off GitHub.
+/*
+!/.gitignore
+!/.dockerignore
+!/Dockerfile
+!/backend/
+!/frontend/
+!/demo/
+!/deploy/
+/backend/*
+!/backend/app/
+!/backend/requirements.lock
+/frontend/*
+!/frontend/index.html
+!/frontend/app.js
+!/frontend/style.css
+/deploy/*
+!/deploy/render-persistent.yaml
+!/deploy/render-free-postgres.yaml

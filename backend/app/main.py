@@ -42,8 +42,12 @@ async def guard(request:Request,call_next):
     return response
 @app.exception_handler(HTTPException)
 async def errors(request,exc):return JSONResponse({'error':'REQUEST_ERROR','message':exc.detail},status_code=exc.status_code)
+@app.exception_handler(store.StorageUnavailable)
+async def storage_errors(request,exc):return JSONResponse({'error':'STORAGE_UNAVAILABLE','message':'Persistent storage temporarily unavailable. Please retry.'},status_code=503,headers={'Retry-After':'10'})
 @app.get('/health')
-def health():return {'status':'ok','mode':'AUTHENTIC_HISTORICAL_REPLAY','modelEnabled':reasoning.configuration()['enabled'],'reasoningProvider':reasoning.configuration()['provider'],'latestFilingAt':max(f['source_published_at'] for f in store.filings()),'asOf':max(b['date'] for b in store.BARS),'refresh':'On-demand imported snapshot; no background polling'}
+def health():
+    with store.LOCK:store.DB.execute('SELECT 1')
+    return {'storageEngine':store.DB.kind,'status':'ok','mode':'AUTHENTIC_HISTORICAL_REPLAY','modelEnabled':reasoning.configuration()['enabled'],'reasoningProvider':reasoning.configuration()['provider'],'latestFilingAt':max(f['source_published_at'] for f in store.filings()),'asOf':max(b['date'] for b in store.BARS),'refresh':'On-demand imported snapshot; no background polling'}
 def symbol_ok(s):
     try:return Query(symbol=s,question='overview').symbol
     except Exception:raise HTTPException(422,'Invalid ticker')
